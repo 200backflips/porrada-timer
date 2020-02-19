@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native';
+import { Appearance } from 'react-native-appearance';
+const darkMode = Appearance.getColorScheme() === 'dark';
 
 const SetCountdown = ({ props }) => {
   const { time, setTime } = props;
@@ -14,30 +16,30 @@ const SetCountdown = ({ props }) => {
         style={styles.inputs}
         keyboardType={'number-pad'}
         onChangeText={setMinutes}
-        />
+      />
       <TextInput
         style={styles.inputs}
         keyboardType={'number-pad'}
         onChangeText={setRounds}
-        />
+      />
       <TextInput
         style={styles.inputs}
         keyboardType={'number-pad'}
         onChangeText={setRest}
-        />
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   inputView: {
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   inputs: {
     padding: 14,
     borderWidth: 1,
-    color: 'rgba(0,0,0,0.5)',
-    borderColor: 'rgba(0,0,0,0.3)'
+    color: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)',
+    borderColor: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)'
   }
 });
 

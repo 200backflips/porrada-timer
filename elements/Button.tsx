@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Appearance } from 'react-native-appearance';
+const darkMode = Appearance.getColorScheme() === 'dark';
 
 const Button = ({ props }) => {
   const { buttonText, pressHandler } = props;
@@ -13,16 +15,17 @@ const Button = ({ props }) => {
 
 const styles = StyleSheet.create({
   buttons: {
-    width: 100,
-    padding: 8,
-    margin: 20,
+    width: 110,
+    padding: 10,
+    marginLeft: 20,
+    marginRight: 20,
     borderWidth: 1,
-    borderColor: 'rgba(0,0,0,0.3)'
+    borderColor: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)'
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: 25,
     textAlign: 'center',
-    color: 'rgba(0,0,0,0.5)'
+    color: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)'
   }
 });
 

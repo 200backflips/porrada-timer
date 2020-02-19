@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
+import { Appearance } from 'react-native-appearance';
+const darkMode = Appearance.getColorScheme() === 'dark';
 
 const InfoText = () => {
   const intervals = useSelector(state => state.intervals);
@@ -20,11 +22,12 @@ const InfoText = () => {
 
 const styles = StyleSheet.create({
   infoView: {
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: 20
   },
   infoText: {
-    marginBottom: 10,
-    fontSize: 17
+    color: darkMode ? '#ffffff' : '#000000',
+    fontSize: 20
   }
 });
 

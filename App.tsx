@@ -5,6 +5,8 @@ import Container from './components/Container';
 import Footer from './components/Footer';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { Appearance } from 'react-native-appearance';
+const darkMode = Appearance.getColorScheme();
 
 const App = () => {
   return (
@@ -21,9 +23,7 @@ const App = () => {
 const styles = StyleSheet.create({
   app: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: darkMode ? '#000000' : '#ffffff',
   }
 });
 

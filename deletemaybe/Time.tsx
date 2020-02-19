@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, Dimensions, Text, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import Countdown from './Countdown';
+import Countdown from '../components/Countdown';
+import { Appearance } from 'react-native-appearance';
+const darkMode = Appearance.getColorScheme() === 'dark';
 
 const Time = () => {
   const intervals = useSelector(state => state.intervals);
@@ -27,7 +29,8 @@ const styles = StyleSheet.create({
     padding: 30
   },
   time: {
-    fontSize: 40
+    fontSize: 60,
+    color: darkMode ? '#ffffff' : '#000000'
   }
 });
 
