@@ -1,9 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, Dimensions, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import PresetPicker from '../elements/PresetPicker';
 import { Appearance } from 'react-native-appearance';
 const darkMode = Appearance.getColorScheme() === 'dark';
 
 const Footer = () => {
+  const picker = useSelector(state => state.picker);
+
   return (
     <View style={styles.footer}>
       <Text style={styles.footerParagraph}>
@@ -14,14 +18,14 @@ const Footer = () => {
         out brawl with ur training partner at times. this has given birth to the
         expression 'everyday porrada'.
       </Text>
+      {picker && <PresetPicker />}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   footer: {
-    width: Dimensions.get('window').width,
-    backgroundColor: darkMode ? '#000000' : '#ffffff'
+    width: Dimensions.get('window').width
   },
   footerParagraph: {
     paddingRight: 20,

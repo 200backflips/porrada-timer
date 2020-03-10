@@ -3,6 +3,7 @@ import Button from '../elements/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import setIntervals from '../redux/actions/intervals';
 import setIsCountingDown from '../redux/actions/isCountingDown';
+import setPicker from '../redux/actions/picker';
 
 const StartButton = () => {
   const intervals = useSelector(state => state.intervals);
@@ -22,6 +23,7 @@ const StartButton = () => {
   const buttonText = isCountingDown ? 'pause' : 'start';
 
   const toggleCountdown = () => {
+    dispatch(setPicker(false));
     dispatch(setIsCountingDown(!isCountingDown));
   };
 

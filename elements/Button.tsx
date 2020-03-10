@@ -7,25 +7,29 @@ const Button = ({ props }) => {
   const { buttonText, pressHandler } = props;
 
   return (
-    <TouchableOpacity style={styles.buttons} onPress={pressHandler}>
+    <TouchableOpacity
+      style={styles.button}
+      onPressOut={pressHandler}
+      activeOpacity={1}
+    >
       <Text style={styles.buttonText}>{buttonText}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  buttons: {
-    width: 110,
+  button: {
+    width: 150,
     padding: 10,
-    marginLeft: 20,
-    marginRight: 20,
-    borderWidth: 1,
-    borderColor: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)'
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 20,
+    backgroundColor: '#355eff'
   },
   buttonText: {
     fontSize: 25,
     textAlign: 'center',
-    color: darkMode ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.5)'
+    color: '#ffffff'
   }
 });
 

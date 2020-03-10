@@ -25,7 +25,7 @@ const DisplayCountdown = () => {
 
 const styles = StyleSheet.create({
   countdown: {
-    padding: 40,
+    padding: 35,
     fontSize: 100,
     color: darkMode ? '#ffffff' : '#000000'
   }

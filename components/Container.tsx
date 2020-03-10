@@ -22,10 +22,10 @@ const Container = () => {
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: 'center',
     alignItems: 'center',
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height - 260,
-    backgroundColor: darkMode ? '#000000' : '#ffffff'
+    height: Dimensions.get('window').height - 260
   },
   buttonView: {
     flexDirection: 'row'

@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height - 590,
     marginTop: Constants.statusBarHeight,
     padding: 5,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   heading: {
     fontSize: 30,

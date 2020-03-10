@@ -7,9 +7,10 @@ const darkMode = Appearance.getColorScheme() === 'dark';
 const InfoText = () => {
   const intervals = useSelector(state => state.intervals);
   const latestPreset = useSelector(state => state.latestPreset);
-  
+
   return (
     <View style={styles.infoView}>
+      <Text style={styles.infoHeading}>{latestPreset.name}</Text>
       <Text style={styles.infoText}>{latestPreset.min} min rounds</Text>
       <Text style={styles.infoText}>{latestPreset.rest} sec rest</Text>
       <Text style={styles.infoText}>
@@ -24,6 +25,12 @@ const styles = StyleSheet.create({
   infoView: {
     alignItems: 'center',
     marginTop: 20
+  },
+  infoHeading: {
+    marginBottom: 15,
+    color: darkMode ? '#ffffff' : '#000000',
+    fontSize: 24,
+    fontWeight: 'bold'
   },
   infoText: {
     color: darkMode ? '#ffffff' : '#000000',

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import Button from '../elements/Button';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '../elements/Button';
+import setIsCountingDown from '../redux/actions/isCountingDown';
 import setIntervals from '../redux/actions/intervals';
 import setLatestPreset from '../redux/actions/latestPreset';
-import setIsCountingDown from '../redux/actions/isCountingDown';
-import incrementCounter from '../redux/actions/counter';
+import setPicker from '../redux/actions/picker';
 import presets from '../helpers/presets';
 
 const PresetButton = () => {
-  const counter = useSelector(state => state.counter);
+  const picker = useSelector(state => state.picker);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,18 +18,12 @@ const PresetButton = () => {
 
   const buttonText = 'presets';
 
-  const togglePresets = () => {
+  const togglePicker = () => {
     dispatch(setIsCountingDown(false));
-    if (counter < presets.length - 1) {
-      dispatch(incrementCounter(counter + 1));
-    } else {
-      dispatch(incrementCounter(0));
-    }
-    dispatch(setIntervals(presets[counter]));
-    dispatch(setLatestPreset(presets[counter]));
+    dispatch(setPicker(!picker));
   };
 
-  return <Button props={{ buttonText, pressHandler: togglePresets }} />;
+  return <Button props={{ buttonText, pressHandler: togglePicker }} />;
 };
 
 export default PresetButton;
