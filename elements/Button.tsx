@@ -1,14 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { Appearance } from 'react-native-appearance';
-const darkMode = Appearance.getColorScheme() === 'dark';
+import * as Haptics from 'expo-haptics';
 
 const Button = ({ props }) => {
   const { buttonText, pressHandler } = props;
 
+  const hapticFeedback = () => {
+    const style = Haptics.ImpactFeedbackStyle.Heavy;
+    Haptics.impactAsync(style);
+  };
+
   return (
     <TouchableOpacity
       style={styles.button}
+      onPress={hapticFeedback}
       onPressOut={pressHandler}
       activeOpacity={1}
     >

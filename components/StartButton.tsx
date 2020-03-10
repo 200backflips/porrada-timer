@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import Button from '../elements/Button';
+import { Vibration } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
+import Button from '../elements/Button';
 import setIntervals from '../redux/actions/intervals';
 import setIsCountingDown from '../redux/actions/isCountingDown';
 import setPicker from '../redux/actions/picker';
@@ -13,6 +14,7 @@ const StartButton = () => {
 
   useEffect(() => {
     if (intervals.min === 0 && intervals.sec === 0 && intervals.rounds === 0) {
+      Vibration.vibrate(500);
       dispatch(setIsCountingDown(false));
       setTimeout(() => {
         dispatch(setIntervals(latestPreset));

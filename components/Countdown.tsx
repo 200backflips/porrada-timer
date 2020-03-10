@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Vibration } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import setIntervals from '../redux/actions/intervals';
 import DisplayCountdown from './DisplayCountdown';
@@ -49,6 +50,7 @@ const Countdown = () => {
       ) {
         dispatch(setIntervals({ ...intervals, rest: intervals.rest - 1 }));
       } else if (intervals.rest === 1) {
+        Vibration.vibrate(500);
         dispatch(
           setIntervals({
             min: latestPreset.min,
