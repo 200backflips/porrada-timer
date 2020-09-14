@@ -1,6 +1,4 @@
-const initState = false;
-
-const isCountingDownReducer = (state = initState, { type, payload }) => {
+const isCountingDownReducer = (state = false, { type, payload }) => {
   switch (type) {
     case 'SET_IS_COUNTING_DOWN':
       return payload;

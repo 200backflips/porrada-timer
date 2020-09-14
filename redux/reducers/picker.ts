@@ -1,6 +1,4 @@
-const initState = false;
-
-const pickerReducer = (state = initState, { type, payload }) => {
+const pickerReducer = (state = false, { type, payload }) => {
   switch (type) {
     case 'SET_PICKER':
       return payload;

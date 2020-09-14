@@ -3,12 +3,10 @@ import { View, StyleSheet, TextInput } from 'react-native';
 import { Appearance } from 'react-native-appearance';
 const darkMode = Appearance.getColorScheme() === 'dark';
 
-const SetCountdown = ({ props }) => {
-  const { time, setTime } = props;
-
-  const setMinutes = value => setTime({ ...time, min: +value });
-  const setRounds = value => setTime({ ...time, rounds: +value });
-  const setRest = value => setTime({ ...time, rest: +value });
+const SetCountdown = ({ time, setTime }) => {
+  const setMinutes = (value) => setTime({ ...time, min: +value });
+  const setRounds = (value) => setTime({ ...time, rounds: +value });
+  const setRest = (value) => setTime({ ...time, rest: +value });
 
   return (
     <View style={styles.inputView}>
@@ -33,14 +31,14 @@ const SetCountdown = ({ props }) => {
 
 const styles = StyleSheet.create({
   inputView: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   inputs: {
     padding: 14,
     borderWidth: 1,
     color: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)',
-    borderColor: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)'
-  }
+    borderColor: darkMode ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)',
+  },
 });
 
 export default SetCountdown;

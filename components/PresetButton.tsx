@@ -8,7 +8,7 @@ import setPicker from '../redux/actions/picker';
 import presets from '../helpers/presets';
 
 const PresetButton = () => {
-  const picker = useSelector(state => state.picker);
+  const picker = useSelector((state) => state.picker);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const PresetButton = () => {
     dispatch(setPicker(!picker));
   };
 
-  return <Button props={{ buttonText, pressHandler: togglePicker }} />;
+  return <Button {...{ buttonText, pressHandler: togglePicker }} />;
 };
 
 export default PresetButton;

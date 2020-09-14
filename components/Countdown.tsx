@@ -5,9 +5,11 @@ import setIntervals from '../redux/actions/intervals';
 import DisplayCountdown from './DisplayCountdown';
 
 const Countdown = () => {
-  const intervals = useSelector(state => state.intervals);
-  const latestPreset = useSelector(state => state.latestPreset);
-  const isCountingDown = useSelector(state => state.isCountingDown);
+  const { vibrate } = Vibration;
+
+  const intervals = useSelector((state) => state.intervals);
+  const latestPreset = useSelector((state) => state.latestPreset);
+  const isCountingDown = useSelector((state) => state.isCountingDown);
   const dispatch = useDispatch();
 
   const useInterval = (callback, delay) => {
@@ -19,7 +21,9 @@ const Countdown = () => {
 
     useEffect(() => {
       const tick = () => {
-        savedCallback.current();
+        if (savedCallback.current) {
+          savedCallback.current();
+        }
       };
       if (delay !== null) {
         let id = setInterval(tick, delay);
@@ -50,13 +54,13 @@ const Countdown = () => {
       ) {
         dispatch(setIntervals({ ...intervals, rest: intervals.rest - 1 }));
       } else if (intervals.rest === 1) {
-        Vibration.vibrate(500);
+        vibrate(500);
         dispatch(
           setIntervals({
             min: latestPreset.min,
             sec: latestPreset.sec,
             rest: latestPreset.rest,
-            rounds: intervals.rounds - 1
+            rounds: intervals.rounds - 1,
           })
         );
       }

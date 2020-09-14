@@ -1,6 +1,4 @@
-const initState = {};
-
-const intervalsReducer = (state = initState, { type, payload }) => {
+const intervalsReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case 'SET_INTERVALS':
       return payload;

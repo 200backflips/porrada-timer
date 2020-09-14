@@ -1,18 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import * as Haptics from 'expo-haptics';
+import { impactAsync, ImpactFeedbackStyle } from 'expo-haptics';
 
-const Button = ({ props }) => {
-  const { buttonText, pressHandler } = props;
-
-  const hapticFeedback = () => {
-    const style = Haptics.ImpactFeedbackStyle.Heavy;
-    Haptics.impactAsync(style);
-  };
+const Button = ({ buttonText, pressHandler, buttonColor = '#355eff' }) => {
+  const hapticFeedback = () => impactAsync(ImpactFeedbackStyle.Heavy);
 
   return (
     <TouchableOpacity
-      style={styles.button}
+      style={{ ...styles.button, backgroundColor: buttonColor }}
       onPress={hapticFeedback}
       onPressOut={pressHandler}
       activeOpacity={1}
@@ -24,18 +19,17 @@ const Button = ({ props }) => {
 
 const styles = StyleSheet.create({
   button: {
-    width: 150,
+    width: 100,
     padding: 10,
     marginLeft: 10,
     marginRight: 10,
     borderRadius: 20,
-    backgroundColor: '#355eff'
   },
   buttonText: {
     fontSize: 25,
     textAlign: 'center',
-    color: '#ffffff'
-  }
+    color: '#ffffff',
+  },
 });
 
 export default Button;

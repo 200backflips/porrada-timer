@@ -1,6 +1,4 @@
-const initState = 1;
-
-const counterReducer = (state = initState, { type, payload }) => {
+const counterReducer = (state = 1, { type, payload }) => {
   switch (type) {
     case 'INCREMENT_COUNTER':
       return payload;

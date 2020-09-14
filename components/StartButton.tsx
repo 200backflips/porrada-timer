@@ -7,9 +7,9 @@ import setIsCountingDown from '../redux/actions/isCountingDown';
 import setPicker from '../redux/actions/picker';
 
 const StartButton = () => {
-  const intervals = useSelector(state => state.intervals);
-  const latestPreset = useSelector(state => state.latestPreset);
-  const isCountingDown = useSelector(state => state.isCountingDown);
+  const intervals = useSelector((state) => state.intervals);
+  const latestPreset = useSelector((state) => state.latestPreset);
+  const isCountingDown = useSelector((state) => state.isCountingDown);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const StartButton = () => {
     dispatch(setIsCountingDown(!isCountingDown));
   };
 
-  return <Button props={{ buttonText, pressHandler: toggleCountdown }} />;
+  return <Button {...{ buttonText, pressHandler: toggleCountdown }} />;
 };
 
 export default StartButton;
